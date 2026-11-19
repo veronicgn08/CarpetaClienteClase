@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let animales = ["perro","gato","hamster"];
+        console.log(animales);
+
+
+        let animales1 = [];
+        let animales2 = [];
+
+        function concatenar (animales1,animales2){
+
+            let animales1 = ["Leon","Jirafa","Elefante"];
+            let animales2 = ["Ternero","Gallina","Pavo"];
+
+            for (let i = 0; i < animales2.length; i++) {
+                animales1[animales1.length] = animales2[i];
+  
+            }
+            console.log(animales1);
+        }
+
+        concatenar();
+
+        function posicionArray (posicionElejida) {
+            let arrrayDesdePosicion = []
+            if (posicionElejida >= 0 ){
+                if(animales.length <= posicionElejida){
+                    for (let i = 0; i < animales.length; i++) {
+                        animalesSeleccionados [posicionElejida] = animales [i];                       
+                    }
+                }
+
+            }
+            if (posicionElejida < 0 ){
+                for (let i = 0; i < animales.length; i++) {
+                    animalesSeleccionados [posicionElejida] = animales [i];                       
+                }                
+
+            }
+
+        }
+
+        posicionArra (1);
+
+
+
+
+
+
+
+        // function añadirEnPosicion(posicionAnimal,nuevoAnimal) {
+        //     let primerosAnimales = [];
+        //     let ultimosAnimales = [];
+        //     posicion = 0;
+        //     //separo en distintos arrays hasta la posicion en la que se van a insertar
+        //     for (let i = 0; i < posicionAnimal; i++) {
+        //        primerosAnimales [posicion] = animales[i];
+        //        posicion++;
+                
+        //     }
+
+        //     ultimosAnimales[0]= nuevoAnimal;
+        //     posicion = 1;
+        //     for (let i = posicionAnimal; i < animales.length; i++) {
+        //         ultimosAnimales [posicion] = animales[i];
+        //         posicion++;
+                
+        //     }
+
+        //     let todosAnimales = [];
+        //     for (let i = 0; i < primerosAnimales.length; i++) {
+                
+        //         todosAnimales[i] = primerosAnimales[i]
+        //     }
+
+        //     for (let i = 0; i < ultimosAnimales.length; i++) {
+        //         todosAnimales[primerosAnimales.length+i] = ultimosAnimales[i];
+               
+        //     }
+        //     console.log(todosAnimales);
+        // }
+        // añadirEnPosicion(1,"LEOOOOON");
+
+
+        
+    </script>
+</body>
+</html>

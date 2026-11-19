@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculo de indice de masa muscular</h1>
+    <script>
+        //Peso.
+        let peso = prompt("¿Cual es tu peso?", "");
+        //Altura.
+        let altura = prompt("Cual es tu altura", "");
+        //Calculo de Peso entre Altura.
+        let indiceMasa = peso / (altura*altura);
+
+        if(indiceMasa <18.5){
+            alert("Tu IMC es bajo");
+        }else if (indiceMasa > 18.5 && indiceMasa < 24.9){
+            alert("Tu IMC es normal");
+        }else if (indiceMasa > 25 && indiceMasa < 29.9){
+            alert("Tu IMC es normal");
+        }else if (indiceMasa >=30){
+            alert("Tienes Obesidad");
+        }
+        
+    </script>
+</body>
+</html>

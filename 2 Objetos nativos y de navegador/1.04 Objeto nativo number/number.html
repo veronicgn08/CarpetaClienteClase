@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        CARACTERISTICAS
+        - Solo hay un tipo de dato numérico.
+        - Podemos representar: 34, 34.5, 123e4, 123e-4, 0xFF
+
+        CAMBIOS DE BASE ENTRE NUMEROS:
+        - toString()
+        */
+
+        let base10 = 128;
+        console.log(base10+ " en base de 2 es: " + base10.toString(2));//Binario
+        console.log(base10+ " en base de 8 es: " + base10.toString(8));
+        console.log(base10+ " en base de 16 es: " + base10.toString(16));
+
+        // INFINITO Y - INFINITO:
+        // - Infinity y -Infinity
+        let inf = 2;
+        while (inf != Infinity){
+            console.log(inf);
+            inf = inf * inf; // inf *= inf;
+        }
+
+        //DIVISIONES
+        let div1 = 2, div2 = 0;
+        console.log("División 2/0 = "+ div1/div2);
+        console.log("División -2/0 = "+ -div1/div2);
+        console.log("Typeof = "+ div1/div2);
+
+
+        // NOT A NUMBER: NaN
+        let valor1 = 100/"casa";
+        let valor2 = 100/"10";
+        console.log("100/'casa' = " + valor1);
+        console.log("100/'10' = " + valor2);
+        console.log("Es NaN valor1? " + isNaN(valor1));
+        console.log("Tipo es Nan: " + typeof(valor1));
+
+        // NUMEROS COMO OBJETOS
+        let num = 123;
+        let num2 = new Number (123);
+        let num3 = new Number (123);
+
+        console.log("num: " + typeof(num));
+        console.log("num2: " + typeof(num2));
+        console.log("num == num2 " + num == num2);
+        console.log("num === num2 " + num === num2);
+        console.log("num2 === num3 " + num2 === num3); // false pero deberia dar true por eso no usar NEW NUMBER();
+
+        // PROPIEDADES son sin parentesis.
+        let nummax = Number.MAX_VALUE;
+        console.log("MAX_VALUE: " + nummax);
+        let nummin = Number.MIN_VALUE;
+        console.log("MIN_VALUE: " + nummin);
+        let posinf = Number.POSITIVE_INFINITY;
+        console.log("POSITIVE_INFINITY: " + posinf);
+        let neginf = Number.NEGATIVE_INFINITY;
+        console.log("NEGATIVE_INFINITY: " + neginf);
+        let numnan = Number.NaN;
+        console.log("Nan: "+ numnan);
+        console.log("Nan - Nan =  "+ Number.NaN - Number.Nan);
+
+
+        //METODOS
+        // toFixed (num_decimales): cadena con numero especifico de decimales ** REDONDEA PONIENDO LOS DECIMALES QUE QUIERES
+        let x = 9.8765
+        console.log(x.toFixed(0));
+        console.log(x.toFixed(2));
+        console.log(x.toFixed(6));
+
+
+        // toPrecision (num_cifras):cadena con el numero de cifras especifico ** CONTANDO TODOS LOS NUMEROS
+        console.log(x.toPrecision());
+        console.log(x.toPrecision(2));
+        console.log(x.toPrecision(6));
+
+        // toExponencial(): cadena con el numero redondeado a notacion cientifica
+        let y = 1234567890123;
+        console.log(y.toExponential(2));
+        console.log(y.toExponential(4));
+
+        //valueOf: devuelve el valor primitivo de un objeto
+        // toString(): devuelve la cadena de un numero
+        let j = 123;
+        console.log(j.toString());
+        console.log(typeof(j.toString()));
+        console.log((123).toString());
+        console.log(typeof((123).toString()));
+        console.log((123+7).toString());
+        console.log(typeof(123+7).toString());
+
+        // METODOS GLOBALES PARA CONVERTIR VARIABLES EN NUMERO:
+        // Number(): devuelve el valor numerico de una variable
+        console.log(Number(true));
+        console.log(Number(false));
+        console.log(Number(new Date()));
+        console.log(Number("10"));
+        console.log(Number("casa"));
+
+        //parseInt() / parseFloat()
+        console.log(parseInt("10.6"));
+        console.log(parseInt("10 20"));
+        console.log(parseInt("10 casa"));
+        console.log(parseInt("casa 10"));// te muestra Nan
+        
+        console.log(parseFloat("10.6"));
+        console.log(parseFloat("10 20"));        
+        console.log(parseFloat("10 casa"));
+        console.log(parseFloat("casa 10"));// te muestra Nan
+
+
+    </script>
+</body>
+</html>

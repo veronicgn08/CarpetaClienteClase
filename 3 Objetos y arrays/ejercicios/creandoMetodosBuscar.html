@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //funcion equivalente a indexOf (elemento,posicion)
+        let semana = ["Lunes","Martes","Miercoles","Martes","Jueves","Viernes","Sabado","Domingo"];
+        
+        // function crearIndexOf (elemento,posicion){
+        //     let posicionElemento = 0;
+        //     let tamañoArray = semana.length;
+        //     if (posicion == 0){
+        //         for (let i = 0; i < tamañoArray; i++) {
+                    
+        //             if (elemento == semana [i]){
+        //                 posicionElemento = i;
+        //                 break;
+        //             }   
+        //         }                
+        //     }else{
+        //         if(posicion < tamañoArray){
+        //             for (let i = posicion; i < tamañoArray; i++) {
+                        
+        //                 if (elemento == semana [i]){
+        //                     posicionElemento = i;
+        //                     break;                     
+        //                 }                        
+        //             }
+        //         }else{
+        //             console.log("La posicion que has marcado supera el tamaño del array");
+        //         }
+        //     }
+        //     console.log(posicionElemento);
+        
+        // }
+
+        // crearIndexOf("Martes",0);
+
+        function crearlastIndexOf(elemento,posicion){
+            let posicionElemento = 0;
+            let tamañoArray = semana.length;
+
+            if (posicion == 0 ){
+                for (let i = tamañoArray-1; i >= 0; i--) {
+                    
+                    if (elemento == semana [i]){
+                        posicionElemento = i;
+                        break;
+                    }   
+                }
+            }else{
+                if(posicion < tamañoArray){
+                    for (let i = posicion-1; i >= 0; i--) {
+                        
+                        if (elemento == semana [i]){
+                            posicionElemento = i;
+                            break;                     
+                        }                        
+                    }
+                }else{
+                    console.log("La posicion que has marcado supera el tamaño del array");
+                }
+                
+            }
+            console.log(posicionElemento);
+
+        }
+
+        crearlastIndexOf("Martes",3);
+
+        
+
+    </script>
+</body>
+</html>

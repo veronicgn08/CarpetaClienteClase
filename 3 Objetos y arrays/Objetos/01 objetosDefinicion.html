@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Definir y crear un obketo simple utilizando un literal
+
+        let persona1 = {
+            nombre: "Francisco",
+            apellido: "Sanchez",
+            anio: 1990
+        } 
+        console.log(persona1);
+
+        // 2. Definir y crear un objeto simple utilizando la palabra new
+
+        let persona2 = new Object();
+        persona2.nombre = "Carlos";
+        persona2.apellido = "Y";
+        persona2.anio = 1988;
+
+        console.log(persona2);
+
+        // 3. Definir un constructor de un objeto y crear objetos del tipo , la primera con mayuscula
+        // con this se hace para hacer referencia al propio objeto que estas creando
+        function Persona (nom,ape,an){
+            this.nombre = nom;
+            this.apellido = ape;
+            this.anio = an;
+        }
+       let  juan = new Persona ("Juan","Martinez",2000);
+       let  ruben = new Persona ("Ruben","Lafuente",1998);
+        console.log(juan);
+        console.log(ruben);
+
+
+    </script>
+</body>
+</html>

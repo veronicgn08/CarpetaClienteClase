@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       // nombre apellido anio y muerte
+        function Persona (nom, ape, an , m){
+                this.nombre = nom;
+                this.apellido = ape;
+                this.anio = an;
+                this.muerte = m;
+                this.nombreCompleto = function (){
+                    return this.nombre + " " + this.apellido;
+                }
+        }
+
+            let  persona1 = new Persona ("Veronica","Garcia", 1994, 2000);   
+            let  persona2 = new Persona ("Manuel","Sanchez",1994, 2026); 
+            console.log(persona1.nombreCompleto());
+
+
+            persona1.nacionalidad = "Española";
+            console.log(persona1.nacionalidad);
+            console.log(persona2.nacionalidad);
+            Persona.prototype.provincia = "Soria";
+
+            let persona3 = new Persona("Ana", "Garcia", 1980,2025);
+
+            // for (x in persona1) {    
+            //     console.log(persona1[x]);
+            //  }
+            
+            // for (x in persona2) {    
+            //     console.log(persona2[x]);
+            //  }             
+
+            // for (x in persona3) {    
+            //     console.log(persona3[x]);
+            //  }              
+
+             Persona.prototype.nacimiento = function(){
+                return "Nacimietno en el año: "+ this.anio;
+             };
+
+            // for (x in persona1) {    
+            //     console.log(persona1[x]);
+            //  }  
+
+             console.log(persona1.nacimiento());
+  
+
+
+
+
+
+
+
+ // Prototipo coche y le agregamos atributos y metodos
+            function Coche (marca, modelo, anio){
+                this.marca = marca;
+                this.modelo = modelo;
+                this.anio = anio;
+            }
+
+            Coche.prototype.color = "Blanco";
+            Coche.prototype.arrancar = function(){
+                return "El coche esta arrancando";
+            }
+
+            let coche1 = new Coche("Ford", "Fiesta", 2010);
+            let coche2 = new Coche("Seat", "Ibiza", 2015);
+
+            console.log(coche1.color);
+            console.log(coche2.color);
+            console.log(coche1.arrancar());
+            console.log(coche2.arrancar());
+
+
+
+    </script>
+</body>
+</html>
+            <!-- edadFallecimiento:function(){
+                return this.muerte - this.anio;
+            }; -->

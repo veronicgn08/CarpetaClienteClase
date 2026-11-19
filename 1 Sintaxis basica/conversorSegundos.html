@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Conversor a segundos</h1>
+    <script>
+        //las variables
+        let horas ;
+        let minutos ;
+        //funcion para sacar los segundos que salen de las horas y minutos dados
+        function conversorSeg (horas,minutos){
+            //calculo de los segundos que hay en las horas dadas.
+            let horasAsegundos = (horas*60)*60;
+            // calculo de segundos en los minutos dados.
+            let minutosAsegundos = minutos*60;
+            // suma de las dos cantidad de los segundos.
+            let cantidadTiempo = horasAsegundos + minutosAsegundos;
+            alert("Horas: "+horas+ " Minutos: "+minutos);
+            alert("Cantidad de tiempo en segundos"+cantidadTiempo);
+        }
+        conversorSeg(5,10)
+    </script>
+</body>
+</html>

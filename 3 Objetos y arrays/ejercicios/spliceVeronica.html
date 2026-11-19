@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //array para probar        
+        let concesionario = ["Kia","Volkswagen","Maserati","Pagani","Ford"];
+
+        function comoSplice (posicion,numBorrar,arrayInicial, nuevoCoche){
+            
+            let tamañoIncial = arrayInicial.length;
+            let tamañoNuevos = nuevoCoche.length;
+
+            if (posicion <0){
+                console.log("La posicion es negativa. NO EXISTE");
+            }else if (posicion > tamañoIncial-1){
+                console.log("La posicion  es mayor que el tamaño del array");
+            }else if(numBorrar <0){
+                console.log("No es posible borrar un numero negativo");
+            }else if (posicion+numBorrar > tamañoIncial){
+                console.log("La cantidad de elementos a borrar supera el tamaño del array"); 
+              }else{
+
+                //Aqui muestro el array original que me hara de referencia para saber si va bien el resto.
+                console.log("Este es mi array ORIGINAL");
+                console.log(arrayInicial);
+                //Convierto el numero negativo a positivo
+
+                //Borro desde la posicion el numero de elementos que he dado con numBorrar
+                
+                for (let i = posicion; i < tamañoIncial-numBorrar; i++) {
+                     arrayInicial[i] = arrayInicial[i+numBorrar];
+                 }
+                //actualizo la longitud del array
+                arrayInicial.length = tamañoIncial - numBorrar;
+                
+                //muevo los datos el array para hacer hueco a los elemntos que voy a añadir copiandolos desde el final
+                for (let i = arrayInicial.length-1; i >= posicion; i--) {
+                    arrayInicial[i+tamañoNuevos] = arrayInicial[i];              
+                }
+                //inserto los datos a la posicion elegida
+                for (let i = 0; i < tamañoNuevos; i++) {
+                   arrayInicial[posicion+i]= nuevoCoche[i];                    
+                }
+                //Aqui muestro el array obtenido.
+                console.log("Este es el array del RESULTADO");
+                console.log(arrayInicial);
+              }         
+
+        }
+        
+        let a = 1;
+        let nuevoCon = ["a","b"];
+        //prueba con negativo en posicion 
+        console.log("-----Numero negativo en posicion-----");
+        comoSplice(-1,1,concesionario,["Ferrari"]); // => Salta error por el negativo en posicion.
+
+
+        //prueba en negativo en borrar
+        console.log("-----Numero negativo en numBorrar-----");
+        comoSplice(1,-1,concesionario,["Ferrari"]); // => Salta error por el negativo en numBorrar.
+
+        //prueba posicion 0
+        console.log("-----Poniendo 0 en posicion y borrando 1-----");
+        comoSplice(0,1,concesionario,["Ferrari"]); // => Correcto lo pone en la posicion 0 .
+
+        //prueba numBorrar en 0
+        console.log("-----Poniendo 0 en numBorrar y en posicion-----");
+        comoSplice(0,0,concesionario,["Ferrari"]); // => Correcto lo pone en la posicion 0 sin borrar.
+
+
+        //prueba fuera de rango posicion
+        console.log("-----Posicion fuera de rango en posicion-----");
+        comoSplice(10,1,concesionario,["Ferrari"]); // => Salta error la posicion es mayor que el tamaño del array.
+
+        //prueba fuera de rango numBorrar
+        console.log("-----Posicion fuera de rango en numBorrar-----");
+        comoSplice(3,10,concesionario,["Ferrari"]); // => Salta error la cantidad de elementos a borrar supera el tamaño del array.
+    
+    </script>
+</body>
+</html>
+
+<!-- //array de prueba 
+concesionario = ["Kia","Volkswagen","Maserati","Pagani","Ford"]
+longitud del array: 5
+
+//casos que fallan
+-numero negativo en la posicion-------------------------CORREGIDO---- ERROR La posicion no existe
+    comoSplice(-1,2,concesionario,["Ferrari"])
+    >solucion esperada: borrar la ultima posicion del array y añadir "Ferrari"
+    >solucion obtenida: no borra ultima posicion y añade -1: Ferrari
+    =mal: modificar para que si la posicion indicada es negativo la convierta a positivo
+
+-numero negativo en numsBorrar-----------------------------------------CORREJIDO
+    comoSplice(0,-1,concesionario,["Ferrari"])
+    >solucion esperada: mensaje de error (no puede borrar -1 elems)
+    >solucion obtenida: vacia todos los elems desde la posicion
+    =mal: convendría agregar mensaje de error por si la cantidad a borrar es menor a 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//casos que no fallan
+-array de prueba vacio
+    comoSplice(0,0,concesionario,["Ferrari"])
+    >solucion esperada: mensaje de error
+    >solucion obtenida: mensaje de error
+    =bien
+
+-posicion mayor que el tamaño
+    comoSplice(10,2, concesionario, ["Ferrari"])
+    >solucion esperada: mensaje de error por posicion mayor que longitud del array
+    >solucion obtenida: mensaje de error por posision mayor que longitud del array
+    =bien
+
+-numsBorrar mayor que el tamaño
+    comoSplice(0,10, concesionario, ["Ferrari"])
+    >solucion esperada: mensaje de error por cantidad mayor a la cantidad del array
+    >solucion obtenida: mensaje de error por cantidad mayor a la cantidad del array
+    =bien
+
+-meter los valores por variables
+    comoSplice(a,a,concesionario, nuevoCon);
+    >solucion esperada: la misma que si lo hicieramos sin variables
+    >solucion obtenida: la misma que al hacerlo sin la variables
+    =bien
+
+-caso normal 
+    comoSplice(1,1,concesionario,["Ferrari"]);
+    >solucion esperada: ['Kia', 'Ferrari', 'Maserati', 'Pagani', 'Ford']
+    >solucion obtenida: ['Kia', 'Ferrari', 'Maserati', 'Pagani', 'Ford']
+    =bien
+
+-vaciar todo
+    comoSplice(0,5,concesionario,"")
+    >solucion esperada: []
+    >solucion obtenida: []
+    =bien
+
+-cambiar todo
+    comoSplice(0,5,concesionario,["Ferrari","Opel","Chevy","Lambo","Porsche"])
+    >solucion esperada: ['Ferrari', 'Opel', 'Chevy', 'Lambo', 'Porsche']
+    >solucion obtenida: ['Ferrari', 'Opel', 'Chevy', 'Lambo', 'Porsche']
+    =bien
+
+-desplazar
+    comoSplice(0,0,concesionario,["Ferrari","Opel","Chevy","Lambo","Porsche"])
+    >solucion esperada:['Ferrari', 'Opel', 'Chevy', 'Lambo', 'Porsche', 'Kia', 'Volkswagen', 'Maserati', 'Pagani', 'Ford']
+    >solucion obtenida:['Ferrari', 'Opel', 'Chevy', 'Lambo', 'Porsche', 'Kia', 'Volkswagen', 'Maserati', 'Pagani', 'Ford']
+    =bien
+
+
+//observaciones:
+vendría bien comprobar que el valor introducido en los parametros posicion y numsBorrar 
+fuera numerico y que no aceptara valores de otro tipo -->

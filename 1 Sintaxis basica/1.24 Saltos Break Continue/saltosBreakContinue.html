@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        - Break: salir o saltar fuera de un bucle, finalizandolo
+
+        */
+
+        // for (i=0;i<10;i++){
+        //     if (i==3){
+        //         break;
+        //     }
+        //     console.log("i = "+i);
+        // }
+
+
+        /*
+        - Continue : salta hasta ka suguiente iteración del bucle
+        */
+
+
+
+        /* No se suele usar
+        - Etiquetas : 
+
+        */
+
+        // let animales = ["perro","gato","gallina"];
+
+        // consulta_animales:{
+        //     console.log(animales[0]);
+        //     break consulta_animales;
+        //     console.log(animales[1]);
+        //     console.log(animales[2]);
+        // }
+
+
+        bucle:
+            for(i=1;i<6;i++){
+                if (i==3){
+                    continue bucle;
+                }
+                console.log("i = " + i);
+            }
+        
+    </script>
+</body>
+</html>

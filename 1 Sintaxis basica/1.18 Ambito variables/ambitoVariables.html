@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        VARIABLES LOCALES
+        - Se definen dentro de una función.
+        - Tienen ámbito local en la función.
+        - Unicamente son accesibles DENTRO de la función.
+        - Desaparece cuando finaliza la función.
+        - Podemos declarar variables con el mismo nombre en diferentes funciones.
+        */
+
+        // function saludar(){
+        //     let saludo = "Hola";
+        //     alert(saludo);
+        // }
+        // saludar();
+        // alert(saludo);
+
+        /*
+        VARIABLES GLOBALES
+        - Se definen fuera de las funciones .
+        - Tienen ámbito global (en todo el código).
+        - Son accesibles desde DENTRO y FUERA de las funciones.
+        - Desaparecen cuando se termina de ejecutar el código.
+        
+        */
+        // let despedida ="Adiós";
+
+        // function despedir(){
+        //     alert(despedida);
+        // }
+
+        // despedir();
+        // alert(despedida);
+
+        /*
+        VARIABLES AUTOMATICAMENTE GLOBALES
+        - Si asignamos un valor a una variables no declarada, automaticamente se convierte en GLOBAL
+        */
+
+        // function preguntar(){
+        //     pregunta = "¿Qué dia es hoy?"; // siempre let delante.
+        //     alert(pregunta);
+        // }
+
+        // preguntar();
+        // alert(pregunta);
+
+        /*
+        VARIABLES LOCALES Y GLOBALES CON EL MISMO NOMBRE
+        - 
+        */
+
+        // let variable1 = "Fuera";
+        // function lugar(){
+        //     let variable1 = "Dentro"; // esta dentro del ámbito local no modifica el fuera.
+        //     alert(variable1)
+        // }
+
+        // alert(variable1);
+        // lugar();
+        // alert(variable1);
+
+        /*
+        VARIABLES GLOBAL REDEFINIDA DENTRO DE LA FUNCIÓN
+
+        */
+        let variable2 = "OUT";
+        function lugar2 (){
+            variable2 = "IN";
+            alert(variable2);
+        }
+        
+        alert(variable2); //OUT
+        lugar2();         // IN
+        alert(variable2); // IN
+
+
+    </script>
+</body>
+</html>

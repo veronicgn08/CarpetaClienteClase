@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Crearción fecha actual
+        let actual = new Date();
+        console.log(actual);
+
+        // Los meses comienzan en 0 
+        // Dias de la semana comienzan en 0 = (Domingo)
+        
+        //Creacion de fechas con cadenas:
+        let d1 = new Date("Fri Nov 06 2026 08:28:19 GMT+0100 (hora estándar de Europa central)");
+        let d2 = new Date("November 21 2026 12:00:00");
+        let d3 = new Date("November 21 2026");
+        let d4 = new Date("Nov 18 2026");
+        let d5 = new Date("20 Nov 2026");
+        console.log(d5);
+
+        //Podemos utilizar comas y guines
+        let d6 = new Date("2026-04-20T12:34:24");
+        let d7 = new Date("2026-04-20"); // YYYY-MM-DD
+        let d8 = new Date("2026/04/20"); // YYYY/MM/DD
+        let d9 = new Date ("20/06/2026");// DD/MM/YYYY
+        let d10 = new Date ("2026-07"); // EL dia se sustituye por uno  
+        let d11 = new Date ("2026"); // El dia y el mes se sustituye por 1
+
+
+        // creación de fecha con milisegundos
+        let dms = new Date(864000000);
+
+        // Creación de fechas con numeros
+        let fechaLarga = new Date(2026,11,10,14,30,25);
+        let fechaCorta = new Date(2026,0,9);
+        console.log(fechaCorta);
+
+
+        let fecha = new Date();
+        console.log(fecha.toString());
+        console.log(fecha.toUTCString());
+        console.log(fecha.toDateString());
+
+        // metodos GET
+        console.log("getDay nos devolvera el dia de la semana"+fecha.getDay()+". getDate el dia: " + fecha.getDate()+"getMonth el mes contando desde 0"+ fecha.getMonth()+" "+ fecha.getFullYear());
+        console.log(fecha.getHours()+" "+ fecha.getMinutes()+" "+ fecha.getSeconds()+" "+ fecha.getMilliseconds());
+
+        //metodos SET
+        console.log(fecha.toString(fecha.setDate(14)));
+        console.log(fecha.toString(fecha.setMonth(11)));
+        console.log(fecha.toString(fecha.setFullYear(2027)));
+        console.log(fecha.toString(fecha.setHours(23)));
+        console.log(fecha.toString(fecha.setMinutes(59)));
+        console.log(fecha.toString(fecha.setSeconds(15)));
+        console.log(fecha.toString(fecha.setMilliseconds(14)));
+
+        //Calculos de fechas
+        let fecha2 = new Date();
+        console.log(fecha2.toString(fecha2.setMonth(fecha2.getMonth()+3)));
+    </script>
+</body>
+</html>

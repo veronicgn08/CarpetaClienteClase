@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Coche(mar,mod,an){
+            this.marca = mar;
+            this.modelo = mod;
+            this.anio = an;
+            this.datosCompletos = function(){
+                return "Este coche es de la marca: "+ this.marca + ", El modelo: "+ this.modelo+ ", Del año: "+this.anio;
+            }
+        }
+        let coche1 = new Coche ("kia","niro",2018);
+        let coche2 = new Coche ("Volswagen","golf",2017,"VERDE");
+        
+        //PRUEBAS CON COCHE1
+
+        console.log(coche1.datosCompletos());
+        // le añado la propiedad color a todos los coches
+        coche1.color = "Azul";
+
+        for(x in coche1){
+            console.log(coche1[x]);
+        }
+
+        //PRUEBAS COCHE2
+        console.log(coche2.datosCompletos());
+        for(x in coche2){
+            console.log("Propiedad "+x + ": "+coche2[x]);
+        }
+
+
+        //Añado a todos los coches la provincia Soria
+        Coche.prototype.provincia = "Soria";
+    </script>
+
+</body>
+</html>

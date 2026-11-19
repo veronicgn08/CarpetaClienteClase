@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Array: almacena en una misma variable multiples valores: valores primitivos, boolean...Y objetos.
+        // se referencian con un indice  empieza por 0,1,2,3....
+        // crear un array
+        // 1. Let nombreArray = [valores separados por comas]
+        let animales = ["Perro","Gato","Hamster","Perro","Gato","Hamster","Pajaro"];
+        // 2. Let nombreArray = new Array (valores separados por comas)
+        let animales2 = new Array ("Perro","Gato","Hamster");
+
+        // // Acceso a los elementos__________________________________
+        // let miAnimal = animales[2];
+        // console.log(miAnimal);
+        console.log(animales);
+
+        // // Propiedades => te da informacion________________________
+        // // length: devuelve la longitud del array (numero de elementos)
+        // console.log(animales.length);
+
+        // for (let i = 0; i < animales.length; i++) {
+        //     console.log(animales[i]);           
+        // }
+
+        // Metodos__________________________________________________
+        // Array.isArray(nombreArray): devuelve true si es un objeto de tipo array
+        // console.log(Array.isArray(animales));
+        // // nombreArray instanceof Array: devuelve true o false
+        // console.log(animales instanceof Array);
+
+        // // Mostrar el array__________________________________________
+        // // toString(): convierte el array a cadena
+        // console.log(animales.toString());
+        
+        // // join("<separador>"); // une por el caracter que tu decidas
+        // console.log(animales.join(", "));
+
+        // Metodos para añadir, extraer o borrar elementos____________
+
+        // // Extraer--------------------------------------------LO ELIMINA AL EXTRAERLO
+        // let ultimo = animales.pop(); // extrae el ultimo elemento del array
+        // console.log(ultimo);
+        // console.log(animales);
+        // let primer = animales.shift();// extrae el primer elemento del arra
+        // console.log(primer);
+        // console.log(animales);
+
+        //
+
+        // Añadir----------------------------------------------------
+        // animales.push("Pajaro"); // lo añade al final
+        // // otra opcion console.log(animales.push("Pajaro"));
+        // console.log(animales);
+
+        // console.log(animales.unshift("Conejo"));//lo añade al principio
+        // console.log(animales);
+
+
+        //FUNCIONES
+        //splice (posicion insertar/borrar, numero elementos a borrar, elementos a introducir separados por comas.)
+        // console.log(animales.splice(1,1,"Vaca","Toro")); // devuelve los elementos eliminados, en el caso de que no se hayan eliminado aparece el array vacio
+        // console.log(animales);
+
+        //slice
+        // devuelve un subarray desde la posicion indicada.
+        // console.log(animales.slice(-2));
+        // console.log(animales);
+
+        // //concat
+        // let masAnimales = ["Burro","Calamar"];
+        // let todos = animales.concat(masAnimales);
+        // console.log(todos);
+
+
+        //Metodos para Buscar------------------------------------------
+        //indexof(elemento,posicion desde)
+        console.log(animales.indexOf("Perro"));
+        
+        //lastIndexOf(elemento, posicion desde) 
+        console.log(animales.lastIndexOf("Perro"));
+
+
+        //Metodo para ordenar e invertir el orden
+        let animalesReverse = animales.reverse();
+        console.log(animalesReverse);
+
+        //sort
+        let arrayNumeros = [1,15,3,70,3,2];
+        console.log(arrayNumeros.sort());
+
+        //fill("elemento")
+        console.log(animales.fill("gallina"));
+
+
+        // at para acceder a un indice
+        //console.log(numeros.at(2));
+
+    </script>
+</body>
+</html>

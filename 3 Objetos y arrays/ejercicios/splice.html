@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //array para probar        
+        let concesionario = ["Kia","Volkswagen","Maserati","Pagani","Ford"];
+
+        function comoSplice (posicion,numBorrar,arrayInicial, nuevoCoche){
+            
+            let tamañoIncial = arrayInicial.length;
+            let tamañoNuevos = nuevoCoche.length;
+
+            if (posicion > tamañoIncial-1){
+                console.log("La posicion  es mayor que el tamaño del array");
+            }else if (posicion+numBorrar > tamañoIncial){
+                console.log("La cantidad de elementos a borrar supera el tamaño del array"); 
+              }else{
+                console.log(arrayInicial);
+                //Borro desde la posicion el numero de elementos que he dado con numBorrar
+                for (let i = posicion; i < tamañoIncial-numBorrar; i++) {
+                     arrayInicial[i] = arrayInicial[i+numBorrar];
+                 }
+                //actualizo la longitud del array
+                arrayInicial.length = tamañoIncial - numBorrar;
+                
+                //muevo los datos el array para hacer hueco a los elemntos que voy a añadir copiandolos desde el final
+                for (let i = arrayInicial.length-1; i >= posicion; i--) {
+                    arrayInicial[i+tamañoNuevos] = arrayInicial[i];              
+                }
+                //inserto los datos a la posicion elegida
+                for (let i = 0; i < tamañoNuevos; i++) {
+                   arrayInicial[posicion+i]= nuevoCoche[i];                    
+                }
+                console.log(arrayInicial);
+              }         
+
+        }
+
+        comoSplice(0,2,concesionario,["TITI"]);
+    </script>
+</body>
+</html>

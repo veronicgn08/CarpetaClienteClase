@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //AND , OR , NOT
+        let x = 10;
+        let y = 5;
+        
+
+        let resultadoAND = (x < 5 && y > 1 ); // true
+        let resultadoOR = (x < 5 || y > 1 ); // true
+        let resultadoNOT = !(x==y);// true
+
+        resultadoAND = (x > 5 && y > 1); //false
+        resultadoOR = (x > 5 || y > 1); //true
+        resultadoNOT = !(x >= y); //false
+        
+        resultadoDos = ((x < 15 && y < x ) || !(x===9));//true
+        //alert (resultadoDos);
+
+        resultadoTres = ((x > 15 || y < x) && (x===10 && !(y>=x)));//true
+                        // FALSE  || TRUE   &&   true  && !(false)
+                                // TRUE     &&   TRUE  && TRUE 
+        alert (resultadoTres);
+
+    
+    </script>
+</body>
+</html>

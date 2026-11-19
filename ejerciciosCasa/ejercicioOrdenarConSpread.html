@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ordenar(array,orden){
+            let arrayOrdenado = [];
+            if(orden ==="Mayor"){
+                if(Array.isArray(array)){
+                    let maximo = Math.max(...array);
+                    arrayOrdenado.push(maximo);
+                    let indiceMaximo = array.indexOf(maximo);
+                    array.splice (indiceMaximo,1);
+
+                }else{
+                    console.log("Los numeros deben estar en un array")
+                }
+                console.log(arrayOrdenado);
+            }else if(orden === "Menor"){
+                if(Array.isArray(array)){
+                    while(array.length >0){
+                        let minimo = Math.max(...array);
+                        arrayOrdenado.push(minimo);
+                        let indiceMinimo = array.indexOf(minimo);
+                        array.splice (indiceMinimo,1);
+                    }
+                    console.log("Este seria su array ordenado: "+arrayOrdenado);
+                }else{
+                    console.log("Los numeros deben estar en un array")
+                }
+            }            
+        }
+
+        ordenar([1,10,3,4,5,8],"Mayor");
+    </script>
+</body>
+</html>

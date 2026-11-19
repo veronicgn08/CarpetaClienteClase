@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 id="peticion">Aqui iran los numeros dados</h3>
+    <p id="numerosDados"></p>
+
+    <script>
+      // programa que valide si un numero es par o no
+
+    function comprobarNumeros(num) {
+        if (num % 2 == 0) {
+          alert("El numero " + num + " es par");
+        } else {
+          alert("El numero " + num + "  es impar");
+        }
+    }
+
+      //comprobarNumeros(7);
+
+      // funcion que me genere los 100 primero numero pares
+
+    function generarNumero(inicio, fin, tipo) {
+        let numOrigen = inicio;
+        //If para saber si es par
+        if (tipo == "par" || tipo == "pares") {
+            // si el numero dado es impar le sumamos uno para que sea par
+            if (inicio % 2 != 0) {
+                inicio++;
+            }
+        }else if (tipo == "impar" || tipo == "impares") {
+                //si el numero dado es par le sumamos uno para que sea impar
+                if (inicio % 2 == 0) {
+                    inicio++;
+                }
+            }
+
+        for (i = inicio; i <= fin; i+=2) {
+            
+            document.getElementById("numerosDados").innerHTML += inicio +"</br>";
+            inicio +=2;
+        }
+            document.getElementById("peticion").innerHTML = " El numero dado  de inicio es: " +numOrigen +", el numero de final es: " +fin +" y quiero que salgan los numeros: " +tipo +"</br>";
+
+        }
+
+        
+     generarNumero(13,51,'impar');
+    </script>
+  </body>
+</html>

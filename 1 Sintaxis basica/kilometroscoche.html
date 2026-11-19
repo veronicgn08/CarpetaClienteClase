@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let numeroKilometros = prompt("Introduce los kilometros", 255); 
+        let litrosConsumidos = prompt("Introduce los litros", 5);;
+
+        function calculoConsumo(numeroKilometros,litrosConsumidos){
+            // calculo introducidos los litros consumidos y dividido entr elos kilometros que hemos hecho 
+            // el resultado son los litros consumidos en cada kilometro
+            let resultadoConsumo =  litrosConsumidos/numeroKilometros;
+            alert("Tu consumo es de "+resultadoConsumo + " por kilometro.");
+
+            //El resultado del consumo cada 100km 
+            let resultado100 = resultadoConsumo * 100;
+            alert("Por cada 100 kilometros consumes: "+resultado100);
+
+
+        }
+        calculoConsumo(80,5);
+    </script>
+</body>
+</html>
+            

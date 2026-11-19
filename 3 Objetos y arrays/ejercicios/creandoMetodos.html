@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let animales1 = ["perro","gato","conejo"];
+        let animales2 = ["TIGRE","leon","lobo","oso","zorro"];
+        
+
+
+        //Concatenar array creando un metodo
+        function concatenar (animales1, animales2) {
+
+
+            for (let i = 0; i < animales2.length; i++) {
+                animales1 [animales1.length] = animales2[i];
+                
+            }
+            console.log(animales1);
+
+        }
+        // concatenar(animales1,animales2);
+
+
+
+        //SLICE
+        //console.log(animales1.slice(1));    
+        function subArray (numPosicion,animales2){
+            let arrayFinal = [];
+            let j =0;
+            if (numPosicion < 0 ){ 
+                numPosicion = animales2.length + numPosicion;                                        
+            }
+
+            if (numPosicion >= 0 && numPosicion < animales2.length){
+                for (let i = numPosicion; i < animales2.length; i++) {            
+                    arrayFinal[j] = animales2[i];
+                    j++;    
+                }
+                    console.log(arrayFinal);
+            }else{
+                console.log("El numero de posicion es mayor que el tamaño del array");
+            }
+        }
+        // subArray(5,animales2);
+        
+
+
+        // SPLICE
+        //console.log(animales1.splice)
+
+        let concesionario = ["Kia","Volkswagen","Maserati","Pagani","Ford"];
+        
+
+        // function borrarDesdePosicion (posicionBorrado, cantidadBorrar){
+        //     let coches = [];
+        //     if (posicionBorrado > concesionario.length-1){
+        //         console.log("La posicion de borrado es mayor que el tamaño del array");
+        //     }else if (posicionBorrado+cantidadBorrar > concesionario.length){
+        //         console.log("La cantidad de elementos a borrar supera el tamaño del array");
+        //     }else{
+
+        //         for (let i = 0; i < posicionBorrado; i++) {
+        //             coches [i]  = concesionario[i];
+        //         }
+        //         console.log(coches);
+
+        //         //aqui calculo la posicion donde empezara el siguiente array despues de borrar los elementos que quiera
+        //         let posicion = 0;
+        //         let j = coches.length; // La posicion donde habra que comenzar a poner los elementos
+        //         posicion = posicionBorrado + cantidadBorrar;//las sumamos para saber desde que posicion comenzar a copiar lo elementos
+
+        //         for (let i = posicion; i < concesionario.length; i++) {
+        //             //añado al array de coches los coches desde la posicion que hemos calculado
+        //             coches[j] = concesionario[i];
+        //             j++;                  
+        //         }
+        //             console.log(coches);
+        //     }
+        // }
+        // //borrarDesdePosicion(4,1);
+
+ 
+        
+        function borrarOinsertarDesdePosicion (posicionDada, cantidadBorrar,arrayInicial,arrayElemento){
+            let tamañoIncial = arrayInicial.length;
+            let tamañoElementos = arrayElemento.length;
+
+            console.log(tamañoIncial);
+            console.log(tamañoElementos);
+
+            //saber si esta dentro de rango la posicion
+            if (posicionDada <= tamañoIncial-1){
+            console.log("La posicion dada es correcta");
+
+
+                // NO SE BORRAN ELEMENTOS 
+                if (cantidadBorrar == 0){
+                    console.log("No se van a borrar elementos!!");
+
+                }else{
+                    //si lo que quieres borrar sea menor o igual a lo que queda del array
+                    if(cantidadBorrar <= tamañoIncial - posicionDada){
+                        console.log("La cantidad a borrar es correcta");
+                        
+                    }
+                
+                if (cantidadBorrar == 0){
+                    console.log("No se van a borrar elementos!!");
+                }else{
+                    console.log("ERROR la cantidad a borrar es mayor que el array");
+                }
+            
+            //si esta fuera de rango error
+            }else {
+            console.log("La posicion de borrado es mayor que el tamaño del array");
+                
+            }
+
+        }
+
+        borrarOinsertarDesdePosicion(3,0,["Kia","Volkswagen","Maserati","Pagani","Ford"],["Veronica","Garcia"]);
+
+
+
+        // function borrarEnPosicion (posicionBorrado, cantidadBorrar){
+            
+        //     if (posicionBorrado > concesionario.length-1){
+        //         console.log("La posicion de borrado es mayor que el tamaño del array");
+        //     }else if (posicionBorrado+cantidadBorrar > concesionario.length){
+        //         console.log("La cantidad de elementos a borrar supera el tamaño del array");
+        //     }else{
+        //         for (let i = posicionBorrado+cantidadBorrar; i < concesionario.length; i++) {
+        //             concesionario [i-cantidadBorrar] = concesionario [i];
+        //         }
+        //         concesionario.length = concesionario.length - cantidadBorrar;
+        //         console.log(concesionario);
+        //     }
+        // }
+        // borrarEnPosicion(3,1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                // function añadirEnPosicion(posicionAnimal,nuevoAnimal) {
+        //     let primerosAnimales = [];
+        //     let ultimosAnimales = [];
+        //     posicion = 0;
+        //     //separo en distintos arrays hasta la posicion en la que se van a insertar
+        //     for (let i = 0; i < posicionAnimal; i++) {
+        //        primerosAnimales [posicion] = animales[i];
+        //        posicion++;
+                
+        //     }
+
+        //     ultimosAnimales[0]= nuevoAnimal;
+        //     posicion = 1;
+        //     for (let i = posicionAnimal; i < animales.length; i++) {
+        //         ultimosAnimales [posicion] = animales[i];
+        //         posicion++;
+                
+        //     }
+
+        //     let todosAnimales = [];
+        //     for (let i = 0; i < primerosAnimales.length; i++) {
+                
+        //         todosAnimales[i] = primerosAnimales[i]
+        //     }
+
+        //     for (let i = 0; i < ultimosAnimales.length; i++) {
+        //         todosAnimales[primerosAnimales.length+i] = ultimosAnimales[i];
+               
+        //     }
+        //     console.log(todosAnimales);
+        // }
+        // añadirEnPosicion(1,"LEOOOOON");
+
+    </script>
+</body>
+</html>

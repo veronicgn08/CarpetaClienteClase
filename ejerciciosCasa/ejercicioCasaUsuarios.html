@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nombre = "Veronica";
+        let apellido = "Garcia";
+        let usuario = "veronica123";
+        let email = "veronica@gmail.com";
+        let mensaje = "   Bienvenida a nuestra aplicacion web   ";
+
+        console.log(nombre.concat(" "+apellido));
+        console.log(nombre.toLowerCase());
+        console.log(nombre.toUpperCase());
+        console.log("El correo tiene el siguiente numero de caracteres: " + email.length);
+
+        if(email.includes("gmail")){
+            console.log("El correo es de gmail");
+        }
+
+        console.log("En que posicion empieza 123: "+usuario.search("123"))
+        console.log("El usuario termina en 123: "+usuario.endsWith("123"))
+        console.log("El usuario comienza con el nombre : "+usuario.startsWith("veronica"))
+
+        console.log(nombre.slice(0,9));
+        let mensajeLimpio = mensaje.trim();
+        console.log(mensajeLimpio.substring(0,10));
+        
+        console.log(email.split("@"));
+        console.log(nombre.split(""));
+        console.log("El nombre: "+(nombre +" ").repeat(4));
+
+    </script>
+</body>
+</html>

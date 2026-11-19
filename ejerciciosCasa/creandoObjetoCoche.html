@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Por si guardara los objetos en array
+        let listaCoches = [];
+        // Crear un objeto coche con propiedades y métodos
+        
+        function Coche (marca, modelo, anioMat){
+            //estos son las propiedades DADAS
+            if (typeof marca !=="string" || typeof modelo !=="string"  ||  typeof anioMat !=="number"){
+                console.log("Algun dato introducido es ERRONEO");
+                return;
+            }
+                
+                this.marca = marca;
+                this.modelo = modelo;
+                this.anioMat = anioMat;
+            //para guardar los coches en un array de listaCoches
+            listaCoches.push(this);
+
+            //propiedad para CREAR una funcion que muestre la informacion dada del coche
+            this.mostrarInfo = function(){
+                console.log("Es un coche de marca: "+ this.marca + " modelo: "+ this.modelo + " y se matriculo en el año: " + this.anioMat);
+            } 
+            
+        }
+
+            //Ahora voy crear una funcion COMPROBAR si el  coche es historico o no
+            Coche.prototype.comprobarHistorico = function (){
+                if(this.historico === true){
+                    alert("El Coche: " + this.marca +" es historico. ¡LIBRE DE IMPUESTOS!");
+                }else if (this.historico === false){
+                    alert("El Coche. " + this.marca + " no es historico. ¡PAGA IMPUESTOS!");
+                }else{
+                    alert("El Coche: " + this.marca + " no aparece registrado ");
+                }
+            }
+            // Ahora voy a crear una funcion que me CALCULAR la antiguedad del coche
+            Coche.prototype.calcularAntiguedadCoche = function (){
+                let actual = new Date();
+                this.AntiguedadCoche = actual.getFullYear() - this.anioMat;
+                console.log("Antiguedad del coche: " + this.AntiguedadCoche + " años");
+            }
+
+        coche1 = new Coche ("Volswagenn","Golf",2020);
+        coche2 = new Coche ("Ford","Mustang",1967);
+        coche2.historico = true;
+        coche3 = new Coche ("Kia","Niro",2018);
+        coche3.historico = false;
+      
+        // //vamos a mostrar los coches que hay en el array 
+        console.log("Estos son los coches que se han creado.")
+        for (let i = 0; i < listaCoches.length; i++) {
+            console.log("Coche numero: " + (i+1) +
+            "\nMarca: "+ listaCoches[i].marca+         
+            "\nModelo: "+listaCoches[i].modelo+
+            "\nAño matriculacion: " +listaCoches[i].anioMat);         
+        }
+
+ // COMPROBACIONES
+
+
+        //el coche 1 deberia mostrar el mensaje de - El coche no aparece registrado "
+        coche1.comprobarHistorico();    
+        //Muestro los datos del coche1 el cual no es tiene datos del registro    
+        for (x in coche1) {
+            console.log(x +": "+coche1[x]);
+        }
+        //vamos a comprobar la Que años tiene el coche actualemente 
+        coche1.mostrarInfo()+coche1.calcularAntiguedadCoche();
+
+        console.log(coche1);
+        console.log(listaCoches);
+        
+
+// //-----------------------------        
+//          //el coche 2 deberia mostrar el mensaje de "Coche historico. ¡LIBRE DE IMPUESTOS!"
+//         coche2.comprobarHistorico();
+//         //Muestro los datos del coche2 el cual el cual es historico.true      
+//         for (x in coche2) {
+//             console.log(x +": "+coche2[x]);
+//         }
+        
+  
+// //-----------------------------
+//         //el coche 3 deberia mostrar el mensaje de "El coche no es historico. ¡PAGA IMPUESTOS!!"
+//         coche3.comprobarHistorico();          
+//         //Muestro los datos del coche3 el cual es historico.false
+//         for (x in coche3) {
+//             console.log(x +": "+coche3[x]);
+//         }
+
+
+
+
+    </script>
+</body>
+</html>

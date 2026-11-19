@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let marcaCoches = ["kia","maserati","ferrari","pagani","ford"]
+        console.log("Estas son las marcas de coches: "+ marcaCoches);
+        //Quito el primer elemento de array
+        function quitarPrimero() {
+            
+            let menosCoches = [];
+            let posicion = 0;
+            console.log(marcaCoches);
+            for (let i = 1; i < marcaCoches.length; i++) {
+                
+                menosCoches[posicion] = marcaCoches[i];
+                
+                posicion++;
+            }
+
+            console.log(menosCoches);
+        }
+       // quitarPrimero();
+
+        //Añadimos un elemento al array
+        function añadirPrimero(nuevoCoche){
+            
+            let actualizarCoches = [];
+            // le decimos cual sera el elemento que va a ir en la primera posicion del array
+            actualizarCoches = [nuevoCoche];
+            let posicion = 1;
+            //empiezo a recorrer el array desde la posicion 0 para que me añada todos los elementos del array original
+            for (let i = 0; i < marcaCoches.length; i++) {
+                actualizarCoches [posicion] = marcaCoches[i];
+                posicion++;
+                
+            }
+            console.log(actualizarCoches);
+
+        }
+       //añadirPrimero("titi");
+        
+       // Añadir a la posicion que yo quiera
+       function añadirEnPosicion (posicionCoche, nuevoCoche) {
+            // declaro el array que va a tener los primeros coches hasta el ultimo que he seleccionado
+            let primerosCoches = [];
+            //declaro el array que va a tener los ultimos coches siendo el primero el que he añadido
+            let ultimosCoches = [];
+            
+            let posicion = 0;
+
+            for (let i = 0; i < posicionCoche; i++) {
+                primerosCoches[posicion] = marcaCoches[i];
+                posicion++;    
+            }
+            console.log(primerosCoches);
+
+            // el array empieza en la posicion 0 y le añado el nuevo coche
+            ultimosCoches[0] = nuevoCoche;
+            // paso la posicion a 1 para que el siguiente elemento del array sea el siguiente coche
+            posicion = 1;
+
+            for (let i = posicionCoche; i < marcaCoches.length; i++) {
+                ultimosCoches[posicion] = marcaCoches[i];
+                posicion++;
+
+            }
+            console.log(ultimosCoches);
+            //para que aparezcan todos los coches en un array nuevo que contenga todos los coches
+            let todosCoches = [];
+            for (let i = 0; i < primerosCoches.length; i++) {
+                todosCoches[i] = primerosCoches[i];
+                
+            }
+            for (let i = 0; i < ultimosCoches.length; i++) {
+                todosCoches[primerosCoches.length+i] = ultimosCoches[i];
+                
+            }
+            console.log(todosCoches);
+
+       }
+       añadirEnPosicion(3,"OPEL");
+    </script>
+</body>
+</html>

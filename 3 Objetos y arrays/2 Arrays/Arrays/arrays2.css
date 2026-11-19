@@ -1,0 +1,15 @@
+.contenido{
+    display:flex;
+    border: blue 3px solid;
+    justify-content: space-evenly;
+    padding: 10px;
+    background-color: black;
+}
+
+.contenido > div{
+    border: black 3px solid;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: white;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let concesionario = ["Kia","Volkswagen","Maserati","Pagani","Ford"];
+
+    function modificar(array, posicion, cantBorrar, elems){
+        let tamañoInicial = array.length;//guarda la longitud del array original
+        let copia = [];//array donde se guardará el resultado
+        if(typeof posicion != "number"){//comprobar que posicion es un valor numerico
+            console.log("Missmatch de tipos: '"+posicion+"' no es un valor numerico");
+        }else if(typeof cantBorrar != "number"){//comprobar q cantBorrar es un valor numerico
+            console.log("Missmatch de tipos: '"+cantBorrar+"' no es un valor numerico");
+        }else{
+            if(posicion<0){//si la posicion es negativa, empezamos a contar desde el final del array
+                posicion = tamañoInicial + posicion;
+            }
+            
+            if(cantBorrar>=0){
+                let numElemsFinal = tamañoInicial - cantBorrar + elems.length;
+                if(posicion<=tamañoInicial-1 && posicion >= 0){
+                    if(cantBorrar<=tamañoInicial-posicion){
+                        for(i=0; i<tamañoInicial; i++){//recorre el array original
+                            if(i==posicion){//si la posicion es igual
+                                for(j=0; j<elems.length; j++){//recorre los elementos
+                                    copia[copia.length] = elems[j];//los añade a la copia
+                                }
+                                i += cantBorrar;//salta los elementos quetiene que borrar
+                            }
+                            
+                            copia[copia.length] = array[i];//añade el elemento del array original a la copia
+
+                            if(copia.length>numElemsFinal){//en caso de que la longitud sea mayor que los elementos, reduce el length
+                                let reduccion = copia.length - numElemsFinal;
+                                copia.length = copia.length - reduccion;
+                            }
+                        }
+
+                        //***Veronica: Tengo que añadir el console.log porque no me muestra nada***
+                        console.log(copia);
+                    }else{
+                        console.log("La cantidad a borrar es mayor que la longitud del array desde la posicion indicada");
+                    }
+                }else{
+                    console.log("La posición es mayor que la longitud del array");
+                }
+            }else{
+                console.log("La cantidad de elementos a borrar no puede ser negativa");
+            }
+        }
+    }
+
+    //Comentarios Veronica 1
+    // 1 - Tengo que añadir el console.log de copia porque no me muestra nada.
+    // 2 - Al estar un array dentro de otro si pongo la posicion 0 y inserto dos elementos estos se guardan en la posicion 0
+    //     una vez cerrado ese array de dos elementos el array original sigue con el 1 hasta el 5, Deberia tener length = 7.
+    // 3 - Casos a TESTEAR
+    //  BIEN   - posicion 0,1,2,3 funcionan bien y 5 te muestra  console.log("La posición es mayor que la longitud del array");
+    //  x Fallo  - posicion 4 y cantidad borrar 1 el ultimo lo marca undefined. El resto BIEN SALTA console.log("La cantidad a borrar es mayor que la longitud del array")
+    //  BIEN   - cantidadBorrar - 1,2,3,5 funciona correctamente.  
+    //  BIEN   - cantidadBorrar fuera de rango 10 muestra bien el mensaje error. 
+    //     - cantidadBorrrar y posicion fuera de rango -1 no contemplada.
+    // x Fallo  - Desde la posicion 1 si quiero borrar 4 la posicion 2 me marca undefined.
+    //     - Añadir elementos => si solo añado un elemento se muestra BIEN.
+    // x Fallo  -                 si se intenta añadir mas de uno inserta un array dentro del array
+    //     
+
+    //PRUEBAS MARIO
+    let arrayPrueba = ["Bugatti","TITI"];
+    //probar posicion negativa
+    modificar(concesionario,-3,3,arrayPrueba);
+    //probar cantBorrar negativa
+    modificar(concesionario,2,-1,"Bugatti");
+    //probar posicion mayor que array.length
+    modificar(concesionario,10,1,"Bugatti");
+
+    //probar a no meter el elemento en un array
+    modificar(concesionario,0,0,"Bugatti");
+    //probar caso tipico
+    modificar(concesionario,2,1,["Bugatti"]);
+    //probar array vacio
+    modificar(concesionario,0,5,[]);
+    //probar a meter los valores con variables
+    pos = 1;
+    borrar = 2;
+    modificar(concesionario,pos,borrar,[]);
+    //probar a meter valores no numericos en los valores pos y borrar
+    modificar(concesionario,"a",5,[]);
+    modificar(concesionario,0,"c",[]);
+    modificar(concesionario, 'number',3,[]);
+    modificar(concesionario,"$",3,[]);
+
+    //Comentarios Veronica 2
+    </script>
+</body>
+</html>

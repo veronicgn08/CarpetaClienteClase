@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        CARACTERISTICAS
+        - Permite realizar operaciones matemáticas
+        - NO EXISTE e construtor new Math()
+        */
+
+        // PROPIEDADES
+        let pi = Math.PI;
+        console.log("Numero pi : "+ pi);
+        let e = Math.E;
+        console.log("Numero E : "+ e);
+        let ln2 = Math.LN2;
+        console.log("Numero ln2 : "+ ln2);        
+        let ln10 = Math.LN10;
+        console.log("Numero ln2 : "+ ln10);
+        
+        // METODOS
+        // random(): devuelve un numero aleatorio entre 0 y 1
+        console.log("El número aleatorio: " + Math.random());
+        console.log("El número aleatorio entre 0 y 9: " + Math.round(Math.random()*10));// aparece el 10
+        console.log("El número aleatorio entre 0 y 9: " + Math.floor(Math.random()*10)); // se queda en el numero anterior
+
+        // max(lista de valores) / min(lista de valores)
+        console.log("Num max: " + Math.max(1,5,3,9,6));
+        console.log("Num min: " + Math.min(1,5,3,9,6));
+
+        // round(numero): redonda al alza o a la baja
+        let a = 4.3, b = 4.7 , c = 4.5
+        console.log("Redondeo de a es: " + a + " es: " + Math.round(a));
+        console.log("Redondeo de b es: " + b + " es: " + Math.round(b));
+        console.log("Redondeo de c es: " + c + " es: " + Math.round(c));
+
+        // ceil(numero): redondea siempre al alza
+        console.log("Redondeo de a es: " + a + " es: " + Math.ceil(a));
+        console.log("Redondeo de b es: " + b + " es: " + Math.ceil(b));
+        console.log("Redondeo de c es: " + c + " es: " + Math.ceil(c));
+
+        // floor(numero): redondea siempre a la baja
+        console.log("Redondeo de a es: " + a + " es: " + Math.floor(a));
+        console.log("Redondeo de b es: " + b + " es: " + Math.floor(b));
+        console.log("Redondeo de c es: " + c + " es: " + Math.floor(c));
+
+        // pow(base, exponente): devuelve el valor de la potencia 
+        console.log("La potencia de 3 al cuadrado es: " + Math.pow(3,2));
+
+        // sqrt(numero): devuelve la raiz del numero 
+        console.log("La raiz de 36 es: " + Math.sqrt(36));
+
+        // abs(numero): devuelve el valor absoluto de un numero 
+        console.log("Valor absoluto de 5 es : " + Math.abs(5));
+        console.log("Valor absoluto de 5 es : " + Math.abs(-5));
+
+        // Metodos trigonometricos
+        // sin, cos, tan, asin...
+
+        console.log("PRUEBA-------------------------------------------")
+        // let arrayNumeros = [1,2,3,4,5,6,7,8,9];
+       
+        let numeros = [1,2,3,4,5,6];
+        function mayorAmenor (numeros){
+            
+            console.log( numeros.length);
+            let arrayOrdenado = [];
+            let maxNumero = Math.max(numeros);
+            console.log(maxNumero);
+
+        }
+        mayorAmenor(numeros);
+
+        // function menorAmayor (){
+
+        // }
+
+    </script>
+</body>
+</html>

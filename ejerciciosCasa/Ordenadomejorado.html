@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ordenar (numeros,orden){
+            console.log("El numero a ordenar es: "+numeros);
+            let comprobacionNumeros = true;
+            let arrayOrdenado = [];
+            //Comprobamos si los numeros estan metidos en un array.
+            if( Array.isArray(numeros)){
+
+                //Con este for comprobamos que lo que hay dentro del array sean solo numeros.
+                for (let i = 0; i < numeros.length; i++) {
+                    if(typeof numeros[i] !== "number"){
+                        comprobacionNumeros = false;
+                    }                   
+                }
+                // Si la comprobacion es true y todos son numeros seguiremos
+                if(comprobacionNumeros){
+                    if (orden.toLowerCase() == "mayor"){
+                        console.log("Ha seleccionado el orden de mayor a menor.");                  
+                        //mientras la longitud del array sea mayor a 0 se ejecutar el codigo
+                        while(numeros.length>0){
+                            //iniciamos el maximo con el primer numero del array
+                            let maximo = numeros[0];
+                            for (let i = 1; i < numeros.length; i++) {
+                                //buscamos el maximo de los dos parametros que hemos pasado y nos quedamos con el mayor
+                                maximo = Math.max(maximo, numeros[i]);                                                                    
+                            }                           
+                            let indiceMaximo = numeros.indexOf(maximo);//guardamos en una variable la posicion del numero mas grande                           
+                            arrayOrdenado.push(maximo);//guardamos en el array en numero que hemos sacado.
+                            numeros.splice(indiceMaximo,1);// En el array de numeros nos colocamos en la posicion en la que estaba el numero mas grande y lo borramos.
+                         
+                        }
+                        console.log("El array ordenador de mayor a menor es: "+ arrayOrdenado);
+
+                    }else if(orden.toLowerCase() == "menor"){
+                        console.log("Ha seleccionado el orden de menor a mayor");
+                        //mientras la longitud del array sea mayor a 0 se ejecutar el codigo
+                        while(numeros.length>0){
+                            //iniciamos el maximo con el primer numero del array
+                            let minimo = numeros[0];
+                            for (let i = 1; i < numeros.length; i++) {
+                                //buscamos el minimo de los dos parametros que hemos pasado y nos quedamos con el menor
+                                minimo = Math.min(minimo, numeros[i]);                                                                   
+                            }
+                            let indiceMinimo = numeros.indexOf(minimo);//guardamos en una variable la posicion del numero mas peequeño                           
+                            arrayOrdenado.push(minimo);//guardamos en el array en numero que hemos sacado.
+                            numeros.splice(indiceMinimo,1); // En el array de numeros nos colocamos en la posicion en la que estaba el numero mas grande y lo borramos.
+                         
+                        }
+                        console.log("El array ordenador de menor a mayor es: "+ arrayOrdenado);
+                    }else{
+                        console.log("¡Orden invalido! Debe elegir entre mayor o menor");
+                    }
+                // Si algun elemento del array no es un numero nos salta el aviso para que pongamos solo numeros
+                }else{
+                    console.log("Debe introducir SOLO NUMEROS");
+                }
+            // Si los numeros no estan en un array nos sale el error
+            }else{
+                console.log("Los numeros deben introducirse en un array");
+            }
+        }
+    
+        ordenar([1,2,4,5,6,8,],"Menor");
+    </script>
+</body>
+</html>
